@@ -2,7 +2,10 @@ var http = require('http');
 
 var server = http.createServer(function(request, response) {
 
-    var clientIPAddress = request.connection.remoteAddress;
+    var clientIPAddress = request.headers['x-forwarded-for'] || 
+    request.connection.remoteAddress || 
+    request.socket.remoteAddress ||
+     (request.connection.socket ? request.connection.socket.remoteAddress : null);
     response.writeHead(200, {"Content-Type": "text/plain"});
     response.end("Your IP is: " + clientIPAddress);
 
