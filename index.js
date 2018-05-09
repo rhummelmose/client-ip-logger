@@ -4,7 +4,7 @@ var server = http.createServer(function(request, response) {
 
     var clientIPAddress = request.connection.remoteAddress;
     response.writeHead(200, {"Content-Type": "text/plain"});
-    response.end("Hi, you're on ip: %s", clientIPAddress);
+    response.end("Hi, you're on ip: ${clientIPAddress}");
 
 });
 
