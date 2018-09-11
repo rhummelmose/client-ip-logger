@@ -7,7 +7,7 @@ var server = http.createServer(function(request, response) {
     request.socket.remoteAddress ||
      (request.connection.socket ? request.connection.socket.remoteAddress : null);
     response.writeHead(200, {"Content-Type": "text/plain"});
-    response.end("Your IP is: " + clientIPAddress);
+    response.end("Hej SKAT! Your IP is: " + clientIPAddress);
 
 });
 
